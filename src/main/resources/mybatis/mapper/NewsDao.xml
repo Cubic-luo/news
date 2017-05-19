@@ -5,15 +5,15 @@
 <mapper namespace="news.dao.NewsDao">
     <!-- 查询所有评论 -->
     <select id="newsQueryAll" resultMap="newsMap">
-		SELECT
-		*
-		FROM
-		news_news
+		SELECT	* FROM	news_news
 	</select>
+    <!--根据id查询新闻-->
+    <select id="newsQueryById" resultMap="newsMap">
+        SELECT * FROM news_news WHERE id=#{newsId}
+    </select>
     <!-- 插入评论 -->
     <insert id="newsInsert" parameterType="News">
-        INSERT INTO
-        news_news (title,content,creatTime,author,state)
+        INSERT INTO   news_news (title,content,creatTime,author,state)
         VALUES(#{title},#{content},#{creatTime},#{author},#{state})
     </insert>
     <!--根据评论id删除评论 -->

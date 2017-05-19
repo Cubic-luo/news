@@ -18,23 +18,13 @@
     <title>首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <link rel="stylesheet" href="<%=basePath%>resource/css/base.css">
-    <link rel="stylesheet" href="<%=basePath%>resource/css/index.css">
 </head>
 <body>
-<div class="loginBox">
-    <a class="col-xs-6 " href="#">注册</a>
-    <a class="col-xs-6" href="#">登录</a>
+<div style="padding:0 10px;font-size: 16px;">
+    <h1 style="font-size: 20px;font-weight: bold;padding:10px 0;">${news.title}</h1>
+    <div style="margin-bottom:10px;">${news.content}</div>
+    <div>小编：${news.author}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间:<fmt:formatDate
+            value="${news.creatTime}" type="both"/></div>
 </div>
-<%--新闻列表开始--%>
-<div class="wrap">
-    <c:forEach var="news" items="${newsList}">
-        <a href="<%=basePath%>news/${news.id}/showDetail" class="newsList">
-            <h1>${news.title}</h1>
-            <div class="content">${news.content}</div>
-            <div>小编：${news.author}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间:<fmt:formatDate value="${news.creatTime}" type="both" /></div>
-        </a>
-    </c:forEach>
-</div>
-<%--新闻列表结束--%>
 </body>
 </html>

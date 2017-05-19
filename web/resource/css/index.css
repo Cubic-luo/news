@@ -1,0 +1,40 @@
+.wrap{
+padding:0 10px;
+}
+.newsList{
+    display: block;
+    font-size: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom:20px;
+    color: #333;
+}
+.newsList h1{
+    font-size: 20px;
+    font-weight: bold;
+}
+.newsList .content{
+    margin-bottom:10px;
+    display: -webkit-box!important;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    word-break: break-all;
+
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2; /*这里控制在哪一行开始出现省略号*/
+}
+.loginBox{
+    height:40px;
+    line-height:40px;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom:20px;
+    background-color: #5CC3FA;
+}
+.loginBox a{
+    color: #000;
+}
+.loginBox a:first-child{
+    border-right: 1px solid #e0e0e0;
+}

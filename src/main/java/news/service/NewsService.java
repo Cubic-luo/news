@@ -14,4 +14,12 @@ public interface NewsService {
      * @return
      */
     List<News> newsQueryAll();
+
+    /**
+     * 根据id查询新闻
+     * @param newsId 新闻id
+     * @return
+     */
+    News newsQueryById(long newsId);
+
 }

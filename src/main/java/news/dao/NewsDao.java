@@ -16,6 +16,13 @@ public interface NewsDao {
     public List<News> newsQueryAll();
 
     /**
+     * 根据id查询新闻
+     * @param id 新闻id
+     * @return
+     */
+    public News newsQueryById(Long newsId);
+
+    /**
      * 插入新闻
      * @return
      */
