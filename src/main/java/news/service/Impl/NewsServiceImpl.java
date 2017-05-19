@@ -19,4 +19,10 @@ public class NewsServiceImpl implements NewsService {
     public List<News> newsQueryAll() {
         return nd.newsQueryAll();
     }
+
+    @Override
+    public News newsQueryById(long newsId) {
+        return nd.newsQueryById(newsId);
+    }
+
 }
