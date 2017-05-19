@@ -17,6 +17,12 @@
     <title></title>
 </head>
 <body>
-欢迎来到首页
+<c:forEach var="news" items="${newsList}">
+    <div>${news.title}</div>
+    <div>${news.content}</div>
+    <div>${news.author}</div>
+    <div>${news.creatTime}</div>
+</c:forEach>
+
 </body>
 </html>
