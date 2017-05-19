@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="news.dao.NewsDao">
+    <!-- 查询所有评论 -->
+    <select id="newsQueryAll" resultMap="newsMap">
+		SELECT
+		*
+		FROM
+		news_news
+	</select>
+    <!-- 插入评论 -->
+    <insert id="newsInsert" parameterType="News">
+        INSERT INTO
+        news_news (title,content,creatTime,author,state)
+        VALUES(#{title},#{content},#{creatTime},#{author},#{state})
+    </insert>
+    <!--根据评论id删除评论 -->
+    <delete id="newsDelete">
+        DELETE FROM news_news WHERE id=#{newsId};
+    </delete>
+    <!--根据评论id和想要修改的审核状态修改评论状态-->
+    <update id="newsUpdata">
+        UPDATE news_news SET title=#{title},content=#{content},creatTime=#{creatTime},author=#{author},state=#{state} WHERE id=#{id}
+    </update>
+    <!-- 映射address对象的resultMap -->
+    <resultMap type="News" id="newsMap">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="parentId"/>
+        <result property="creatTime" column="creatTime"/>
+        <result property="author" column="detail"/>
+        <result property="state" column="state"/>
+    </resultMap>
+</mapper>
