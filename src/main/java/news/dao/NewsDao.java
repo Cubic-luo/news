@@ -17,7 +17,7 @@ public interface NewsDao {
 
     /**
      * 根据id查询新闻
-     * @param id 新闻id
+     * @param newsId 新闻id
      * @return
      */
     public News newsQueryById(Long newsId);

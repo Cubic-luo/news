@@ -21,10 +21,6 @@
     <link rel="stylesheet" href="<%=basePath%>resource/css/index.css">
 </head>
 <body>
-<div class="loginBox">
-    <a class="col-xs-6 " href="#">注册</a>
-    <a class="col-xs-6" href="#">登录</a>
-</div>
 <%--新闻列表开始--%>
 <div class="wrap">
     <c:forEach var="news" items="${newsList}">
@@ -36,5 +32,11 @@
     </c:forEach>
 </div>
 <%--新闻列表结束--%>
+<%--底部菜单开始--%>
+<div class="menu">
+    <a href="#" class="menuActive">首页</a>
+    <a href="<%=basePath%>user">个人中心</a>
+</div>
+<%--底部菜单结束--%>
 </body>
 </html>
