@@ -57,7 +57,7 @@
     <div>
         <input type="submit" class="submitBtn" value="登录">
     </div>
-    <div style="text-align: right;padding-right: 10%;padding-top: 10px;">还没有账号？<a href="#">立即注册</a></div>
+    <div style="text-align: right;padding-right: 10%;padding-top: 10px;">还没有账号？<a href="<%=basePath%>user/showRegister">立即注册</a></div>
 </form>
 </body>
 </html>

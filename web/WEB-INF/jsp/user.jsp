@@ -15,8 +15,13 @@
 <html>
 <head>
     <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
 </head>
 <body>
-欢迎来到个人中心，完善中.....
+<%--用户头像和用户名--%>
+<div style="border-bottom: 1px solid #e0e0e0;padding-bottom:8px;margin-bottom:10px;">
+    <img style="width: 60px;height: 60px;vertical-align: middle;margin-right:20px;border-radius: 50%;" src="<%=basePath%>resource/img/${user.imgUrl}" alt="头像">${user.username}
+</div>
+<div><a style="color: #000;display: block;text-align: center;" href="<%=basePath%>logout">退出登录</a></div>
 </body>
 </html>

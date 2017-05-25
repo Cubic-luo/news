@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="news.dao.UserDao">
+    <select id="userSelect" resultMap="userMap">
+        SELECT * FROM news_user WHERE username=#{username}
+    </select>
+    <!--注册用户-->
+    <insert id="userInsert" parameterType="User">
+        INSERT INTO news_user (username,password,imgUrl,role)
+        VALUES(#{username},#{password},#{imgUrl},#{role})
+    </insert>
+    <resultMap type="User" id="userMap">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="imgUrl" column="imgUrl"/>
+        <result property="role" column="role"/>
+    </resultMap>
+</mapper>

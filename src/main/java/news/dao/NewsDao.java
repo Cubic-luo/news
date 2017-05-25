@@ -13,20 +13,20 @@ public interface NewsDao {
      * 查询所有评论
      * @return
      */
-    public List<News> newsQueryAll();
+    List<News> newsQueryAll();
 
     /**
      * 根据id查询新闻
      * @param newsId 新闻id
      * @return
      */
-    public News newsQueryById(Long newsId);
+    News newsQueryById(Long newsId);
 
     /**
      * 插入新闻
      * @return
      */
-    public int newsInsert(News news);
+    int newsInsert(News news);
 
     /**
      * 修改新闻
@@ -39,5 +39,5 @@ public interface NewsDao {
      * @param newsId 新闻id
      * @return
      */
-    public int newsDelete(Long newsId);
+    int newsDelete(Long newsId);
 }
