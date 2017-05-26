@@ -59,7 +59,7 @@
         <input type="text" placeholder="输入用户名" name="username">
     </div>
     <div>
-        <input type="password" placeholder="输入密码" name="password">
+        <input id="password" type="password" placeholder="输入密码" name="password">
     </div>
     <div>
         <input type="password" placeholder="确认密码" name="password2">

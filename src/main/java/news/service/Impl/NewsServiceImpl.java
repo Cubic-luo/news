@@ -6,6 +6,8 @@ import news.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,6 +17,7 @@ import java.util.List;
 public class NewsServiceImpl implements NewsService {
     @Autowired
     private NewsDao nd;
+
     @Override
     public List<News> newsQueryAll() {
         return nd.newsQueryAll();
@@ -23,6 +26,17 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public News newsQueryById(long newsId) {
         return nd.newsQueryById(newsId);
+    }
+
+    @Override
+    public int newsDelete(Long newsId) {
+        return nd.newsDelete(newsId);
+    }
+
+    @Override
+    public int newsInsert(News news) {
+        news.setCreatTime(new Date());
+        return nd.newsInsert(news);
     }
 
 }

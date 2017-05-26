@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface NewsDao {
     /**
-     * 查询所有评论
+     * 查询所有新闻
      * @return
      */
     List<News> newsQueryAll();

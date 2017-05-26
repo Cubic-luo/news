@@ -22,4 +22,18 @@ public interface NewsService {
      */
     News newsQueryById(long newsId);
 
+    /**
+     * 删除新闻
+     * @param newsId
+     * @return
+     */
+    int newsDelete(Long newsId);
+
+    /**
+     * 发布新闻
+     * @param news
+     * @return
+     */
+    int newsInsert(News news);
+
 }

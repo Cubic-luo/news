@@ -21,6 +21,7 @@ public class NewsController {
 
     /**
      * 展示首页，新闻列表
+     *
      * @param model
      * @return
      */
@@ -30,10 +31,57 @@ public class NewsController {
         model.addAttribute("newsList", newsList);
         return "index";
     }
+
     @RequestMapping(value = "news/{newsId}/showDetail")
-    public String newsDetail(@PathVariable Long newsId,Model model){
-        News news=ns.newsQueryById(newsId);
-        model.addAttribute("news",news);
+    public String newsDetail(@PathVariable Long newsId, Model model) {
+        News news = ns.newsQueryById(newsId);
+        model.addAttribute("news", news);
         return "newsDetail";
+    }
+
+    /**
+     * 跳转到新闻管理页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "news/manage")
+    public String newsManage(Model model) {
+        List<News> newsList = ns.newsQueryAll();
+        model.addAttribute("newsList", newsList);
+        return "newsManage";
+    }
+
+    /**
+     * 删除新闻
+     *
+     * @param newsId
+     * @return
+     */
+    @RequestMapping("news/{newsId}/delete")
+    public String newsDelete(@PathVariable Long newsId) {
+        ns.newsDelete(newsId);
+        return "redirect:/news/manage";
+    }
+
+    /**
+     * 发布新闻
+     *
+     * @param news
+     * @return
+     */
+    @RequestMapping("news/insert")
+    public String newsInsert(News news) {
+        int result = ns.newsInsert(news);
+        return "redirect:/news/manage";
+
+    }
+
+    /**
+     * 跳转到新闻发布页面
+     * @return
+     */
+    @RequestMapping("news/publish")
+    public String newsPublish() {
+        return "newsPublish";
     }
 }
