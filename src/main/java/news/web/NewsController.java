@@ -2,6 +2,8 @@ package news.web;
 
 import news.entity.News;
 import news.service.Impl.NewsServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ import java.util.List;
 public class NewsController {
     @Autowired
     private NewsServiceImpl ns;
+//获取日志对象
+    private Logger logger= LoggerFactory.getLogger(this.getClass());
 
     /**
      * 展示首页，新闻列表
@@ -27,6 +31,7 @@ public class NewsController {
      */
     @RequestMapping()
     public String newsShowAll(Model model) {
+        logger.info("进入日志");
         List<News> newsList = ns.newsQueryAll();
         model.addAttribute("newsList", newsList);
         return "index";

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--上下文名称,用于区分不同应用程序的记录-->
+    <contextName>com.clover286.news</contextName>
+    　　　　　　
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            　　　　　　　　　　　　　　
+            <fileNamePattern>/news/log/newsLog.%d{yyyy-MM-dd}.log</fileNamePattern>
+            　　　　　　　　　　　　　　
+            <maxHistory>30</maxHistory>
+            　　　　　　　　　　　　
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+    　　　　　　
+    <root level="DEBUG">
+        <appender-ref ref="FILE"/>
+    </root>
+    　　　　
+</configuration>

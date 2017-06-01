@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-@ImportResource("classpath:spring/*.xml")
+@ImportResource(value="classpath:spring/*.xml")
 @Import(SecurityConfig.class)
 @ComponentScan(basePackages = { "news.service"})
 public class RootConfig {
