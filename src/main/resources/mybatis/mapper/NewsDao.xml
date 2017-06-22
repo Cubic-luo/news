@@ -3,34 +3,53 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="news.dao.NewsDao">
-    <!-- 查询所有新闻 -->
+    <!-- 查询所有消息 -->
     <select id="newsQueryAll" resultMap="newsMap">
-		SELECT	* FROM	news_news
+		SELECT	* FROM	news_news n,news_user u
 	</select>
-    <!--根据id查询新闻-->
+    <!--根据消息id查询消息-->
     <select id="newsQueryById" resultMap="newsMap">
-        SELECT * FROM news_news WHERE id=#{newsId}
+        SELECT * FROM news_news n,news_user u WHERE n.userId=u.id AND n.id=#{newsId}
     </select>
-    <!-- 插入评论 -->
+    <!-- 插入消息 -->
+    <!--根据用户id查询消息-->
+    <select id="newsQueryByUserId" resultMap="newsMap">
+        SELECT * FROM news_news WHERE userId=#{userId}
+    </select>
+    <!-- 插入消息 -->
     <insert id="newsInsert" parameterType="News">
-        INSERT INTO  news_news (title,content,creatTime,author,state)
-        VALUES(#{title},#{content},#{creatTime},#{author},#{state})
+        INSERT INTO  news_news (title,content,creatTime,userId,state,question,answer1,answer2,answer3,answer4,rightAnswer)
+        VALUES(#{title},#{content},#{creatTime},#{userId},#{state},#{question},#{answer1},#{answer2},#{answer3},#{answer4},#{rightAnswer})
     </insert>
-    <!--根据评论id删除评论 -->
+    <!--根据消息id删除消息 -->
     <delete id="newsDelete">
         DELETE FROM news_news WHERE id=#{newsId};
     </delete>
-    <!--根据评论id和想要修改的审核状态修改评论状态-->
+    <!--根据消息id和想要修改的审核状态修改消息状态-->
     <update id="newsUpdata">
-        UPDATE news_news SET title=#{title},content=#{content},creatTime=#{creatTime},author=#{author},state=#{state} WHERE id=#{id}
+        UPDATE news_news SET title=#{title},content=#{content},creatTime=#{creatTime},userId=#{userId},state=#{state},question=#{question},answer1=#{answer1},answer2=#{answer2},answer3=#{answer3},answer4=#{answer4},rightAnswer=#{rightAnswer} WHERE id=#{id}
     </update>
-    <!-- 映射address对象的resultMap -->
+    <!-- 映射消息对象的resultMap -->
     <resultMap type="News" id="newsMap">
         <id property="id" column="id"/>
+        <result property="userId" column="userId"/>
         <result property="title" column="title"/>
-        <result property="content" column="parentId"/>
+        <result property="content" column="content"/>
         <result property="creatTime" column="creatTime"/>
-        <result property="author" column="detail"/>
         <result property="state" column="state"/>
+        <result property="question" column="question" />
+        <result property="answer1" column="answer1"/>
+        <result property="answer2" column="answer2"/>
+        <result property="answer3" column="answer3"/>
+        <result property="answer4" column="answer4"/>
+        <result property="rightAnswer" column="rightAnswer"/>
+        <association property="user" javaType="User">
+            <id property="id" column="id" />
+            <result property="username" column="username" />
+            <result property="password" column="password" />
+            <result property="role" column="role" />
+            <result property="imgUrl" column="imgUrl" />
+            <result property="point" column="point"/>
+        </association>
     </resultMap>
 </mapper>

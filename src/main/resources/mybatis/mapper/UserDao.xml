@@ -8,14 +8,28 @@
     </select>
     <!--注册用户-->
     <insert id="userInsert" parameterType="User">
-        INSERT INTO news_user (username,password,imgUrl,role)
-        VALUES(#{username},#{password},#{imgUrl},#{role})
+        INSERT INTO news_user (username,password,imgUrl,role,point)
+        VALUES(#{username},#{password},#{imgUrl},#{role},#{point})
     </insert>
+    <update id="userUpdatePoint">
+        UPDATE news_user SET point=#{newPoint} WHERE id=#{userId}
+    </update>
     <resultMap type="User" id="userMap">
         <id property="id" column="id"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>
         <result property="imgUrl" column="imgUrl"/>
         <result property="role" column="role"/>
+        <result property="point" column="point"/>
+        <collection property="news" javaType="ArrayList" column="id"
+                    ofType="Discuss" select="news.dao.NewsDao.newsQueryByUserId"
+                    fetchType="lazy">
+            <id property="id" column="id" />
+            <result property="title" column="title"/>
+            <result property="content" column="content" />
+            <result property="creatTime" column="creatTime" />
+            <result property="userId" column="userId" />
+            <result property="state" column="state" />
+        </collection>
     </resultMap>
 </mapper>

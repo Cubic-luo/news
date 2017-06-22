@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="news.dao.TaskDao">
+    <!-- 查询所有任务 -->
+    <select id="taskQueryAll" resultMap="taskMap">
+		SELECT	* FROM	news_task t,news_user u,news_news n
+	</select>
+    <!--根据用户id查询任务-->
+    <select id="taskQueryByUserId" resultMap="taskMap">
+        SELECT * FROM news_task WHERE userId=#{userId}
+    </select>
+    <!-- 插入任务 -->
+    <insert id="taskInsert" parameterType="Task">
+        INSERT INTO  news_task (userId,newsId,creatTime,myAnswer)
+        VALUES(#{userId},#{newsId},#{creatTime},#{myAnswer})
+    </insert>
+    <!-- 映射任务对象的resultMap -->
+    <resultMap type="Task" id="taskMap">
+        <result property="userId" column="userId"/>
+        <result property="creatTime" column="creatTime"/>
+        <result property="newsId" column="state"/>
+        <result property="myAnswer" column="myAnswer"/>
+        <association property="user" javaType="User">
+            <id property="id" column="id" />
+            <result property="username" column="username" />
+            <result property="password" column="password" />
+            <result property="role" column="role" />
+            <result property="imgUrl" column="imgUrl" />
+            <result property="point" column="point"/>
+        </association>
+        <association property="news" javaType="News">
+            <id property="id" column="id" />
+            <result property="userId" column="userId"/>
+            <result property="title" column="title"/>
+            <result property="content" column="content"/>
+            <result property="creatTime" column="creatTime"/>
+            <result property="state" column="state"/>
+            <result property="question" column="question" />
+            <result property="answer1" column="answer1"/>
+            <result property="answer2" column="answer2"/>
+            <result property="answer3" column="answer3"/>
+            <result property="answer4" column="answer4"/>
+            <result property="rightAnswer" column="rightAnswer"/>
+        </association>
+    </resultMap>
+</mapper>

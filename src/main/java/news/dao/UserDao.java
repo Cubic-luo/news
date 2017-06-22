@@ -1,6 +1,7 @@
 package news.dao;
 
 import news.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 用户相关接口
@@ -20,4 +21,8 @@ public interface UserDao {
      * @return
      */
     User userSelect(String username);
+    /**
+     * 更新用户积分
+     */
+    int userUpdatePoint(@Param("newPoint") int newPoint,@Param("userId") Long userId);
 }

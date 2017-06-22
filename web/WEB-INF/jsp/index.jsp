@@ -25,18 +25,15 @@
 <div class="wrap">
     <c:forEach var="news" items="${newsList}">
         <a href="<%=basePath%>news/${news.id}/showDetail" class="newsList">
-            <h1>${news.title}</h1>
+            <h1 class="c_Title">${news.title}</h1>
             <div class="content">${news.content}</div>
-            <div>小编：${news.author}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间:<fmt:formatDate value="${news.creatTime}" type="both" /></div>
+            <div class="time">${news.user.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${news.creatTime}" type="both" /></div>
         </a>
     </c:forEach>
 </div>
 <%--新闻列表结束--%>
 <%--底部菜单开始--%>
-<div class="menu">
-    <a href="#" class="menuActive">首页</a>
-    <a href="<%=basePath%>user">个人中心</a>
-</div>
+    <a class="menu" href="<%=basePath%>user"><img src="<%=basePath%>resource/img/i1.jpg" alt="">个人中心</a>
 <%--底部菜单结束--%>
 </body>
 </html>

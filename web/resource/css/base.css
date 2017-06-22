@@ -12,6 +12,24 @@
  img{max-width: 100%;height: auto;vertical-align: middle;}
  body{color: #333;font-family:'Microsoft Himalaya';line-height:1.6;font-size: 14px;}
 
+/*标题样式*/
+.c_Title{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-top:8px;
+  padding-bottom:8px;
+}
+/*提交按钮*/
+.c_submitBtn {
+  display: block;
+  width: 80%;
+  border:none;
+  margin:10px auto;
+  padding: 5px 8px;
+  background-color: green;
+  color: #fff;
+}
 
 /*栅栏布局*/
 

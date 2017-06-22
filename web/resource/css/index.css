@@ -15,8 +15,6 @@ body{
 }
 /*新闻标题*/
 .newsList h1{
-    font-size: 20px;
-    font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;/*多余的文字省略号展示*/
@@ -26,14 +24,17 @@ body{
     margin-bottom:10px;
     display: -webkit-box!important;
     overflow: hidden;
-
     text-overflow: ellipsis;
     word-break: break-all;
-
     -webkit-box-orient:vertical;
-    -webkit-line-clamp:2; /*这里控制在哪一行开始出现省略号*/
+    -webkit-line-clamp:1; /*这里控制在哪一行开始出现省略号*/
+}
+/*发布时间及作者信息栏*/
+.time{
+    text-align: right;
 }
 /*新闻样式结束*/
+
 /*底部菜单开始*/
 .menu{
     position: fixed;
@@ -41,26 +42,16 @@ body{
     left:0;
     right:0;
     border-top: 1px solid #e0e0e0;
-    padding:12px 0 6px;
     font-size: 18px;
     background: #F5F5F5;
-
-}
-.menu a{
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     text-align: center;
-    display: block;
     color: #333333;
-    width:50%;
-    float: left;
-    border-right: 1px solid #e0e0e0;
+    padding-top:10px;
+    background:white;
+    vertical-align: middle;
 }
-.menu a:last-child{
-    border-right: none;
+.menu img{
+    margin-top:-10px;
 }
-.menuActive{
-    color:deepskyblue!important;
-}
+
 /*底部菜单结束*/

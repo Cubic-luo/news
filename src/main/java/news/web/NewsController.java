@@ -31,7 +31,6 @@ public class NewsController {
      */
     @RequestMapping()
     public String newsShowAll(Model model) {
-        logger.info("进入日志");
         List<News> newsList = ns.newsQueryAll();
         model.addAttribute("newsList", newsList);
         return "index";
@@ -69,7 +68,7 @@ public class NewsController {
     }
 
     /**
-     * 发布新闻
+     * 发布新闻,发布完成跳转到首页
      *
      * @param news
      * @return
@@ -77,7 +76,7 @@ public class NewsController {
     @RequestMapping("news/insert")
     public String newsInsert(News news) {
         int result = ns.newsInsert(news);
-        return "redirect:/news/manage";
+        return "redirect:/";
 
     }
 

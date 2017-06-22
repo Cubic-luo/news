@@ -34,23 +34,34 @@
             width: 80%;
             padding: 5px 8px;
             border: 1px solid #e0e0e0;
+            margin-bottom:10px;
         }
-
-        .submitBtn {
-            background-color: green;
-            color: #fff;
-            margin-top: 10px;
+        .loginForm select{
+            box-sizing: border-box;
+            width: 80%;
+            padding: 5px 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom:20px;
         }
     </style>
 </head>
 <body>
 <form action="<%=basePath%>news/insert" class="loginForm" method="post">
     <input name="title" type="text" placeholder="标题">
-    <input name="author" type="hidden" value="<sec:authentication property='principal.username'/>">
     <textarea  style="resize: none;box-sizing: border-box;width: 80%;padding: 5px 8px;height: 150px;border: 1px solid
-    #e0e0e0;margin-top: 20px;"  name="content" placeholder="新闻内容"></textarea>
-
-    <input class="submitBtn" type="submit" value="发布">
+    #e0e0e0;margin-top: 20px;margin-bottom: 20px;"  name="content" placeholder="消息内容"></textarea>
+    <input type="text" placeholder="提问" name="question">
+    <input type="text" placeholder="答案A" name="answer1">
+    <input type="text" placeholder="答案B" name="answer2">
+    <input type="text" placeholder="答案C" name="answer3">
+    <input type="text" placeholder="答案D" name="answer4"><br />
+    <select name="rightAnswer">
+        <option value="A">A</option>
+        <option VALUE="B">B</option>
+        <option VALUE="C">C</option>
+        <option VALUE="D">D</option>
+    </select><br />
+    <input class="c_submitBtn" type="submit" value="发布">
 </form>
 </body>
 </html>

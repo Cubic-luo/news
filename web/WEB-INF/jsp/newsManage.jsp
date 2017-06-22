@@ -37,7 +37,7 @@
 <c:forEach items="${newsList}" var="news">
     <div class="news">
         <p>${news.title}</p>
-        <div>小编：${news.author}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间:<fmt:formatDate
+        <div>小编：${news.user.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间:<fmt:formatDate
                 value="${news.creatTime}" type="both"/></div>
         <p><a style="display: block;color: #000;text-align: right;margin-top:10px;"
               href="<%=basePath%>news/${news.id}/delete">删除</a></p>
