@@ -20,7 +20,7 @@
     <resultMap type="Task" id="taskMap">
         <result property="userId" column="userId"/>
         <result property="creatTime" column="creatTime"/>
-        <result property="newsId" column="state"/>
+        <result property="newsId" column="newsId"/>
         <result property="myAnswer" column="myAnswer"/>
         <association property="user" javaType="User">
             <id property="id" column="id" />

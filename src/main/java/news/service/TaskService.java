@@ -18,10 +18,9 @@ public interface TaskService {
     /**
      * 根据用户id查询用户做过的任务
      *
-     * @param userId
      * @return
      */
-    List<Task> taskQueryByUserId(Long userId);
+    List<Task> taskQueryByUserId();
 
     /**
      * 插入任务

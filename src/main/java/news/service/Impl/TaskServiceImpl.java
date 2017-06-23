@@ -33,7 +33,10 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> taskQueryByUserId(Long userId) {
+    public List<Task> taskQueryByUserId() {
+        String username=getUserName();//获取当前登录用户名
+        User user=ud.userSelect(username);
+        Long userId=user.getId();//h
         return td.taskQueryByUserId(userId);
     }
 

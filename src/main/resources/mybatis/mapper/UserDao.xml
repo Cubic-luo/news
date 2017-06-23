@@ -22,7 +22,7 @@
         <result property="role" column="role"/>
         <result property="point" column="point"/>
         <collection property="news" javaType="ArrayList" column="id"
-                    ofType="Discuss" select="news.dao.NewsDao.newsQueryByUserId"
+                    ofType="News" select="news.dao.NewsDao.newsQueryByUserId"
                     fetchType="lazy">
             <id property="id" column="id" />
             <result property="title" column="title"/>
@@ -30,6 +30,14 @@
             <result property="creatTime" column="creatTime" />
             <result property="userId" column="userId" />
             <result property="state" column="state" />
+        </collection>
+        <collection property="task" javaType="ArrayList" column="id"
+                    ofType="Task" select="news.dao.TaskDao.taskQueryByUserId"
+                    fetchType="lazy">
+            <result property="userId" column="userId"/>
+            <result property="creatTime" column="creatTime"/>
+            <result property="newsId" column="newsId"/>
+            <result property="myAnswer" column="myAnswer"/>
         </collection>
     </resultMap>
 </mapper>

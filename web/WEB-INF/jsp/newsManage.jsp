@@ -43,9 +43,6 @@
               href="<%=basePath%>news/${news.id}/delete">删除</a></p>
     </div>
 </c:forEach>
-<%--增加新闻开始--%>
-<a style="color: #000;background: #fff;display: block;font-size: 16px;padding-top:10px;padding-left:10px;" href="<%=basePath%>news/publish">发布新闻</a>
-<%--增加新闻结束--%>
 <a href="<%=basePath%>" style="margin-top:10px;background: #fff;color: #000;display: block;font-size: 16px;padding-top:10px;padding-left:10px;">返回主页</a>
 </body>
 </html>

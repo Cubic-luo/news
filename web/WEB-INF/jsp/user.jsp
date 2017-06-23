@@ -35,11 +35,13 @@
     <img style="width: 60px;height: 60px;margin-right:20px;border-radius: 50%;"
          src="<%=basePath%>resource/img/${user.imgUrl}" alt="头像">${user.username}
 </div>
+<div>积分余额：${user.point}</div>
 <div class="list">
     <a href="<%=basePath%>logout">退出登录</a>
     <a href="<%=basePath%>">回到主页</a>
     <%--增加新闻开始--%>
     <a href="<%=basePath%>news/publish">发布广告</a>
+    <a href="<%=basePath%>task/history">历史记录</a>
     <%--增加新闻结束--%>
     <%--当管理员登录时才显示管理页面的通道--%>
     <sec:authorize access="hasRole(1)">

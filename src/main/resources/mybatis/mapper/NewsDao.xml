@@ -5,7 +5,7 @@
 <mapper namespace="news.dao.NewsDao">
     <!-- 查询所有消息 -->
     <select id="newsQueryAll" resultMap="newsMap">
-		SELECT	* FROM	news_news n,news_user u
+		SELECT	* FROM	news_news n,news_user u WHERE u.id=n.userId
 	</select>
     <!--根据消息id查询消息-->
     <select id="newsQueryById" resultMap="newsMap">

@@ -17,10 +17,10 @@ public class User {
     private String password;//用户密码
     private String imgUrl;//头像路径
     private int role;//用户权限
-    private List<News> news;//用户发布的广告
-
-
     private int point;//积分
+    private List<News> news;//用户发布的广告
+    private List<Task> task;//阅读过的历史记录
+
 
     @Override
     public String toString() {
@@ -30,9 +30,18 @@ public class User {
                 ", password='" + password + '\'' +
                 ", imgUrl='" + imgUrl + '\'' +
                 ", role=" + role +
-                ", news=" + news +
                 ", point=" + point +
+                ", news=" + news +
+                ", task=" + task +
                 '}';
+    }
+
+    public List<Task> getTask() {
+        return task;
+    }
+
+    public void setTask(List<Task> task) {
+        this.task = task;
     }
 
     public int getPoint() {
